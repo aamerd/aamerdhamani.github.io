@@ -1,0 +1,104 @@
+<!-- pornpics.de -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Strip Rock, Paper, Scissors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>img {width: 300px;}</style>
+</head>
+<body align="center">
+<h1>Strip Rock, Paper, Scissors</h1>
+<h2>My Girls</h2>
+<h3 id="HerText">Are you ready to play, Aamer?</h3>
+<p><img id="HerPicC" src="c1.jpg"><img id="HerPicK" src="k1.jpg"><img id="HerPicM" src="m1.jpg"><img id="HerPicT" src="t1.jpg"><img id="HerPicU" src="u1.jpg">
+<h2>Aamer</h2>
+<p>
+<button id="Rbutton" onclick="MyChoice(1);">Rock</button>
+<button id="Pbutton" onclick="MyChoice(2);">Paper</button>
+<button id="Sbutton" onclick="MyChoice(3);">Scissors</button>
+<button id="Nbutton" onclick=location.reload(); style="display:none">New game</button>
+</p>
+<script>
+var HerLevel = 1;
+var MyLevel = 1;
+
+function MyChoice(n) {
+var HerPick = Math.floor(Math.random() * 3) + 1;
+var MyPick = n;
+
+if (HerPick == 1) {
+if (MyPick == 1) {var Verdict = "We all chose Rock!";}
+if (MyPick == 2) {
+var Verdict = "Your Paper suffocated our Rock!";
+HerLevel = HerLevel + 1;
+HerPenalty(HerLevel);
+}
+if (MyPick == 3) {
+var Verdict = "Our Rock smashed your Scissors!";
+MyLevel = MyLevel + 1;
+MyPenalty(MyLevel);
+}
+}
+
+if (HerPick == 2) {
+if (MyPick == 1) {
+var Verdict = "Our Paper suffocated your Rock!";
+MyLevel = MyLevel + 1;
+MyPenalty(MyLevel);
+}
+if (MyPick == 2) {var Verdict = "We all chose Paper!";}
+if (MyPick == 3) {
+var Verdict = "Your Scissors tore up our paper!";
+HerLevel = HerLevel + 1;
+HerPenalty(HerLevel);
+}
+}
+
+if (HerPick == 3) {
+if (MyPick == 1) {
+var Verdict = "Your Rock smashed our Scissors!";
+HerLevel = HerLevel + 1;
+HerPenalty(HerLevel);
+}
+if (MyPick == 2) {
+var Verdict = "Our Scissors tore up your paper!";
+MyLevel = MyLevel + 1;
+MyPenalty(MyLevel);
+}
+if (MyPick == 3) {var Verdict = "We all chose Scissors!";}
+}
+
+function HerPenalty(x) {
+if (x == 2) {Verdict = Verdict + " We took off one item of clothing!";}
+if (x == 3) {Verdict = Verdict + " We took off another item!";}
+if (x == 4) {
+Verdict = Verdict + " We took off the last item, so we're naked now!";
+document.getElementById("Rbutton").style = "display:none";
+document.getElementById("Pbutton").style = "display:none";
+document.getElementById("Sbutton").style = "display:none";
+document.getElementById("Nbutton").style = "display";
+}
+}
+
+function MyPenalty(y) {
+if (y == 2) {Verdict = Verdict + " Time to take off your t-shirt, sweetie!";}
+if (y == 3) {Verdict = Verdict + " Loving your chest, but time to take off your shorts!";}
+if (y == 4) {
+Verdict = Verdict + " Enjoying the bulge, so take off your briefs and get naked!";
+document.getElementById("Rbutton").style = "display:none";
+document.getElementById("Pbutton").style = "display:none";
+document.getElementById("Sbutton").style = "display:none";
+document.getElementById("Nbutton").style = "display";
+}
+}
+
+document.getElementById("HerPicC").src = "c" + HerLevel + ".jpg"
+document.getElementById("HerPicK").src = "k" + HerLevel + ".jpg"
+document.getElementById("HerPicM").src = "m" + HerLevel + ".jpg"
+document.getElementById("HerPicT").src = "t" + HerLevel + ".jpg"
+document.getElementById("HerPicU").src = "u" + HerLevel + ".jpg"
+document.getElementById("HerText").innerHTML = Verdict;
+}
+</script>
+</body>
+</html>
